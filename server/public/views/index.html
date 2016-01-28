@@ -9,5 +9,47 @@
 <body ng-controller="MainController">
     <h1>Angular Built In Directives</h1>
     {{message}}
+
+    <!-- ng-href -->
+    <div>
+        <a ng-href="http://cnn.com/{{end}}">Check out this link</a>
+    </div>
+
+    <!-- ng-src -->
+    <div>
+        <img ng-src="http://www.gravatar.com/avatar/{{endTwo}}" alt=""/>
+    </div>
+    <label>Click here to toggle:
+        <input type="checkbox" ng-model="checked"/>
+    </label>
+
+    <!-- ng-if -->
+    <div ng-if="checked">
+        <button ng-model="button" ng-enabled="checked">button text</button>
+    </div>
+
+    <!-- ng-show -->
+    <div ng-show="checked">
+        <button ng-model="button" ng-enabled="checked">button text</button>
+    </div>
+
+    <!--ng-model -->
+    <div>
+        <label>Check the first box to check both: <br /><input type="checkbox" ng-model="thing"/></label>
+        <input type="checkbox" ng-checked="thing"/>
+        {{thing}}
+    </div>
+    <h2>Which is your favorite?</h2>
+    <label ng-repeat="name in names">
+        {{name}}
+        <input type="radio" ng-model="my.favorite" ng-value="name"/>
+    </label>
+    <div>You chose {{my.favorite}}</div>
+
+    <!-- quick note on ng-bind -->
+    <div ng-bind="thing"></div>
+    <!-- does the same thing as the following, but use the following to avoid the flash of curly braces-->
+    <div>{{thing}}</div>
+    <!-- it's even better to use ng-cloak to avoid the initial loading flash issues -->
 </body>
 </html>
